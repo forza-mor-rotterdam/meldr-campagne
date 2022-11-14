@@ -70,12 +70,12 @@ MEDIA_ROOT = os.path.normpath(join(os.path.dirname(BASE_DIR), "media"))
 
 CORS_ORIGIN_WHITELIST = (
     MELDR_URL,
+    "https://mor-test.mendixcloud.com",
     "http://127.0.0.1",
     "http://0.0.0.0",
     "http://localhost",
 )
 CORS_ORIGIN_ALLOW_ALL = False
-
 
 TEMPLATES = [
     {
