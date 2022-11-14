@@ -40,8 +40,8 @@ def ip_source_throttle(request):
     now = time.time()
     interval = settings.COOLDOWN_INTERVAL
     source = request.GET.get(settings.QRCODE_SOURCE_PARAM)
-    is_valid_source = source in settings.VALID_SOURCE_VALUES
-    if not is_valid_source:
+
+    if not source:
         return
 
     origin = request.META.get("HTTP_ORIGIN", "no-origin")
