@@ -77,6 +77,8 @@ CORS_ORIGIN_WHITELIST = (
 )
 CORS_ORIGIN_ALLOW_ALL = False
 
+USE_X_FORWARDED_HOST = True
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
