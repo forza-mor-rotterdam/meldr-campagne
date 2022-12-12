@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from campagne.utils import HttpResponseNoContent, check_user_agent, ip_source_throttle, IOS, ANDROID
 
 
