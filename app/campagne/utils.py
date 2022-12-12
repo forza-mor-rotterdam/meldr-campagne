@@ -37,8 +37,6 @@ def check_user_agent(request):
 
 
 def ip_source_throttle(request):
-    now = time.time()
-    interval = settings.COOLDOWN_INTERVAL
     source = request.GET.get(settings.QRCODE_SOURCE_PARAM)
 
     if not source:
@@ -47,13 +45,10 @@ def ip_source_throttle(request):
     origin = request.META.get("HTTP_ORIGIN", "no-origin")
 
     ip = get_client_ip(request)
-    last_run = cache.get(ip, 0)
-    if now - last_run < interval:
-        print("wait")
-    else:
-        add_qr_event({
-            "ip-address": ip,
-            "source": source,
-            "origin": origin,
-        })
-        cache.set(ip, now)
+
+    add_qr_event({
+        "ip-address": ip,
+        "source": source,
+        "origin": origin,
+    })
+    
